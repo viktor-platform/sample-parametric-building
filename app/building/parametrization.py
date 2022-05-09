@@ -64,5 +64,4 @@ class BuildingParametrization(Parametrization):
         options=_material_options,
         default="Prefab Concrete",
         variant="radio",
-        flex=100,
-    )
+        flex=100)

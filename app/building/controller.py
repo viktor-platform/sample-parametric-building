@@ -30,7 +30,6 @@ class BuildingController(ViktorController):
     """Controller class which acts as interface for the Building entity type."""
     label = "Building"
     parametrization = BuildingParametrization(width=20)
-    viktor_convert_entity_field = True
 
     @GeometryAndDataView("3D Model and Shadow Cost", duration_guess=1, default_shadow=False)
     def visualize(self, params: Munch, **kwargs) -> GeometryAndDataResult:
