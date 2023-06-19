@@ -20,7 +20,7 @@ from typing import Tuple
 import numpy as np
 from munch import Munch
 
-from viktor.core import UserException
+from viktor.core import UserError
 from viktor.geometry import Line
 from viktor.geometry import Point
 from viktor.geometry import Polygon
@@ -58,7 +58,7 @@ def determine_materials(selected_material):
         core_material = PREFAB_CONCRETE
         column_span = 5.0
     else:
-        raise UserException("Unknown material selected")
+        raise UserError("Unknown material selected")
 
     return slab_material, column_material, core_material, column_span
 

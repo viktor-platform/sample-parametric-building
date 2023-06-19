@@ -63,6 +63,7 @@ env
 
 # Folder visual studio code
 .vscode/
+/venv
 
 # Ignore files for local manifest
 manifest/local_*_properties.json
