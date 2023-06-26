@@ -1,2 +1,2 @@
 welcome_text = "manifest\\welcome_text.txt"
-app_type = "tree"
+app_type = "editor"
