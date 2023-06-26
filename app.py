@@ -15,6 +15,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 """
 from viktor.parametrization import Parametrization, NumberField, OptionField
 
+from pathlib import Path
 from munch import Munch
 from viktor.core import ViktorController
 from viktor.geometry import Group
@@ -22,6 +23,8 @@ from viktor.views import DataGroup
 from viktor.views import DataItem
 from viktor.views import GeometryAndDataResult
 from viktor.views import GeometryAndDataView
+from viktor.views import WebView
+from viktor.views import WebResult
 from model import calculate_prices
 from model import create_building_geometries
 from model import create_ground_surface
@@ -133,3 +136,11 @@ class BuildingController(ViktorController):
         return GeometryAndDataResult(
             Group([ground_surface, core, *slabs, *columns]), data
         )
+    
+    @WebView("What's next?", duration_guess=1)
+    def whats_next(self, params, **kwargs):
+        """Initiates the process of rendering the "What's next" tab."""
+        html_path = Path(__file__).parent / "next_step.html"
+        with html_path.open(encoding="utf-8") as _file:
+            html_string = _file.read()
+        return WebResult(html=html_string)
